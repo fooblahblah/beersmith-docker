@@ -1,13 +1,11 @@
-FROM debian:latest
+FROM ubuntu:16.04
 
-RUN apt-get update
-ADD https://s3.amazonaws.com/BeerSmith2-2/BeerSmith-2.2.12_amd64.deb /tmp/
-RUN dpkg -i /tmp/BeerSmith-2.2.12_amd64.deb; exit 0
-RUN apt-get -y install -f
-RUN apt-get -y install cups-client
-
-RUN mkdir -p /home/beersmith2/.beersmith2 && \
-    chmod 777 -R /home/beersmith2
+ADD https://s3.amazonaws.com/beersmith2-3/BeerSmith-2.3.12_amd64.deb /tmp/
+RUN apt-get update && \
+  apt-get install -y /tmp/BeerSmith-2.3.12_amd64.deb && \
+  apt-get clean && \
+  mkdir -p /home/beersmith2/.beersmith2 && \
+  chmod 777 -R /home/beersmith2
 
 ENV HOME /home/beersmith2
 CMD /usr/bin/beersmith2
