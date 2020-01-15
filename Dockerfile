@@ -1,9 +1,10 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-ADD https://s3.amazonaws.com/beersmith2-3/BeerSmith-2.3.12_amd64.deb /tmp/
-RUN apt-get update && \
-  apt-get install -y /tmp/BeerSmith-2.3.12_amd64.deb && \
-  apt-get clean && \
+ADD https://s3.amazonaws.com/beersmith2-3/BeerSmith-2.3.12_17_04amd64.deb /tmp/
+RUN apt update && \
+  apt install -y /tmp/BeerSmith-2.3.12_17_04amd64.deb && \
+  apt install -y libcanberra-gtk-module && \
+  apt clean && \
   mkdir -p /home/beersmith2/.beersmith2 && \
   chmod 777 -R /home/beersmith2
 
