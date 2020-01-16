@@ -14,4 +14,4 @@ docker run -ti --rm -e DISPLAY=$DISPLAY -u $UID:`id -g $USER` \
     -v /var/run/cups/cups.sock:/var/run/cups/cups.sock \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /dev/snd:/dev/snd:rw \
-    bpeters504/beersmith2:2.1.0
+    bpeters504/beersmith2:latest
