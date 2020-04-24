@@ -8,9 +8,10 @@ else
     echo "$HOME/.beersmith3 directory already exists"
 fi
 
-docker run -ti --rm -e DISPLAY=$DISPLAY -u $UID:`id -g $USER` \
+docker run --rm -e DISPLAY=$DISPLAY -u $UID:`id -g $USER` \
     -v $HOME/.beersmith3:/home/beersmith3/.beersmith3 \
-    -v $HOME/Documents:/home/beersmith2/Documents \
+    -v $HOME/Documents:/home/beersmith3/Documents \
+    -v $HOME/Downloads:/home/beersmith3/Downloads \
     -v /var/run/cups/cups.sock:/var/run/cups/cups.sock \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /dev/snd:/dev/snd:rw \
